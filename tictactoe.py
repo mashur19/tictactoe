@@ -60,6 +60,8 @@ if playChoice.lower() == 'y':
             c1=input().lower()
             theBoard[c1]='X'
             disBoard()
+            if winCondition() == 1:
+                break
             print('player'+str(nextPlayer)+'enter the position for O')
             c2=input().lower()
             theBoard[c2]='O'
