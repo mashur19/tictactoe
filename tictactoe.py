@@ -1,6 +1,6 @@
 import random
 
-theBoard={'tl':'','tc':'','tr':'','ml':'','mc':'','mr':'','bl':'','bc':'','br':''}
+theBoard={'tl':' ','tc':' ','tr':' ','ml':' ','mc':' ','mr':' ','bl':' ','bc':' ','br':' '}
 
 #display board function to display board after every move 
 def disBoard():   
@@ -56,22 +56,22 @@ if playChoice.lower() == 'y':
     disBoard()
     for i in range(9):
         while winCondition() == 0:
-            print('player'+str(player)+'enter the position for X')
+            print('player'+str(player)+' enter the position for X')
             c1=input().lower()
             theBoard[c1]='X'
             disBoard()
             if winCondition() == 1:
                 break
-            print('player'+str(nextPlayer)+'enter the position for O')
+            print('player'+str(nextPlayer)+' enter the position for O')
             c2=input().lower()
             theBoard[c2]='O'
             disBoard()
         break
 
     if winCondition() == 1:
-        print('player'+str(player)+'wins the game')
+        print('player'+str(player)+' wins the game')
     else:
-        print('player'+str(nextplayer)+'wins the game')    
+        print('player'+str(nextplayer)+' wins the game')    
 else:
     SystemExit
 '''
