@@ -35,8 +35,6 @@ def winCondition():
     else:
         return 0
 
-#def main:
-
 #ask the player to start the game 
 print(r'''Welcome to TicTacToe
 --------------------
@@ -56,14 +54,25 @@ if playChoice.lower() == 'y':
     disBoard()
     for i in range(9):
         while winCondition() == 0:
-            print('player'+str(player)+' enter the position for X')
-            c1=input().lower()
+            
+            while True:           
+                print('player'+str(player)+' enter the position for X')
+                c1=input().lower()
+                if c1 in theBoard.keys():    
+                    break
+                else:
+                    print("Invalid position")
             theBoard[c1]='X'
-            disBoard()
+            disBoard()   
             if winCondition() == 1:
                 break
-            print('player'+str(nextPlayer)+' enter the position for O')
-            c2=input().lower()
+            while True:
+                print('player'+str(nextPlayer)+' enter the position for O')
+                c2=input().lower()
+                if c2 in theBoard.keys():
+                    break
+                else:
+                    print("Invalid position")
             theBoard[c2]='O'
             disBoard()
         break
@@ -74,13 +83,3 @@ if playChoice.lower() == 'y':
         print('player'+str(nextplayer)+' wins the game')    
 else:
     SystemExit
-'''
-#capture move made by the player
-def capturePos(str):
-    if str.isaplha == True:
-        theBoard[str]='X'
-    elif str.isalpha == True:
-        theBoard[str]='O'
-'''
-
-
