@@ -32,6 +32,16 @@ def winCondition():
      or (theBoard['tr']=='O' and theBoard['mc']=='O' and theBoard['bl']=='O')):
         return 2
 
+    elif (theBoard['tl']!=' ' and 
+     theBoard['tc']!=' ' and 
+     theBoard['tr']!=' ' and 
+     theBoard['ml']!=' ' and 
+     theBoard['mc']!=' ' and 
+     theBoard['mr']!=' ' and 
+     theBoard['bl']!=' ' and 
+     theBoard['bc']!=' ' and theBoard['br']!=' '):
+        return 3
+
     else:
         return 0
 
@@ -67,7 +77,7 @@ if playChoice.lower() == 'y':
                     print("Invalid position")
             theBoard[c1]='X'
             disBoard()   
-            if winCondition() == 1:
+            if winCondition() == 1 or winCondition() == 3:
                 break
             while True:
                 print('player'+str(nextPlayer)+' enter the position for O')
@@ -81,11 +91,15 @@ if playChoice.lower() == 'y':
                     print("Invalid position")
             theBoard[c2]='O'
             disBoard()
+            if winCondition() == 2 or winCondition() == 3:
+                break
         break
 
     if winCondition() == 1:
         print('player'+str(player)+' wins the game')
-    else:
-        print('player'+str(nextplayer)+' wins the game')    
+    elif winCondition() == 2:
+        print('player'+str(nextPlayer)+' wins the game')
+    elif winCondition() == 3:
+        print('game is a draw')        
 else:
     SystemExit
