@@ -59,7 +59,10 @@ if playChoice.lower() == 'y':
                 print('player'+str(player)+' enter the position for X')
                 c1=input().lower()
                 if c1 in theBoard.keys():    
-                    break
+                    if theBoard[c1]==' ':
+                        break
+                    else:
+                        print('place already occupied')
                 else:
                     print("Invalid position")
             theBoard[c1]='X'
@@ -70,7 +73,10 @@ if playChoice.lower() == 'y':
                 print('player'+str(nextPlayer)+' enter the position for O')
                 c2=input().lower()
                 if c2 in theBoard.keys():
-                    break
+                    if theBoard[c2]==' ':
+                        break
+                    else:
+                        print('place already occupied')
                 else:
                     print("Invalid position")
             theBoard[c2]='O'
